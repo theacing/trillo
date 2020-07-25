@@ -1,10 +1,13 @@
 {
-  "name": "castle",
+  "name": "trillo",
   "version": "1.0.0",
-  "description": "animated project",
+  "description": "flexbox project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:sass": "node-sass sass/style.scss css/style.css -w",
+    "compile:sass": "node-sass -o sass/style.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.concat.css -o css/style.prefix.css"
   },
   "author": "stradiuarius",
   "license": "ISC",

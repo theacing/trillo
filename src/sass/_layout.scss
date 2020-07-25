@@ -1,0 +1,87 @@
+.container{
+  max-width: 120rem;
+  background-color: $greyLight1;
+  margin: 8rem auto;
+  box-shadow: 0 2rem 6rem rgba($black, .3);
+  min-height: 50rem;
+  
+  @media only screen and (max-width: 75em) {
+    margin: 0;
+  }
+}
+
+.header {
+  font-weight: 400;
+  font-size: 1.4rem;
+  height: 7rem;
+  background-color: $white;
+  border-bottom: $line;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content{
+  display: flex;
+}
+
+.sidebar{
+  background-color: $greyDark1;
+  flex: 0 0 18%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hotel-view{
+  background-color: $white;
+  flex: 1;
+}
+
+
+.detail{
+  font-size: 1.4rem;
+  display: flex;
+  padding: 4.5rem;
+  background-color: $greyLight1;
+  border-bottom: $line;
+}
+
+.info{
+  flex: 0 0 60%;
+  background-color: $white;
+  box-shadow: $shadow;
+  padding: 3rem;
+  margin-right: 4.5rem;
+}
+
+.reviews{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.nickname{
+  &:link,
+  &:visited{
+    color: $greyLight4;
+    background-position: 0 0;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .5s;
+
+    &:hover,
+    &:active{
+      background-image: linear-gradient(to right bottom, $gold 0%, $gold1 20%, $white 20%, $gold 40%, $white 60%, $gold1 60%, $white 80%, $gold 100%);
+      animation: gold 5s infinite alternate;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+}
+

@@ -1,76 +1,80 @@
 .container{
   max-width: 120rem;
-  background-color: $greyLight1;
   margin: 8rem auto;
-  box-shadow: 0 2rem 6rem rgba($black, .3);
+  background-color: $greyLight2;
+  box-shadow: 0 2rem 6rem rgba($black, .4);
+
   min-height: 50rem;
   
-  @media only screen and (max-width: 75em) {
+  @media only screen and (max-width: $bp-largest) {
     margin: 0;
+    max-width: 100%;
   }
+  } 
+
+::selection{
+  background-color: $first;
+  color: $greyLight1;
 }
 
-.header {
-  font-weight: 400;
+///////////////////////////////////////////////////////////////////////////////////////
+//HEADER
+
+.header{
   font-size: 1.4rem;
   height: 7rem;
   background-color: $white;
-  border-bottom: $line;
-
+  border-bottom: .2rem solid $greyLight2;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: $bp-smallest){
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 13rem;
+  }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+//CONTENT
 
 .content{
   display: flex;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+//SIDEBAR
 
 .sidebar{
   background-color: $greyDark1;
   flex: 0 0 18%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+//HOTEL VIEW
 
 .hotel-view{
   background-color: $white;
   flex: 1;
 }
 
-
-.detail{
-  font-size: 1.4rem;
-  display: flex;
-  padding: 4.5rem;
-  background-color: $greyLight1;
-  border-bottom: $line;
-}
-
-.info{
-  flex: 0 0 60%;
-  background-color: $white;
-  box-shadow: $shadow;
-  padding: 3rem;
-  margin-right: 4.5rem;
-}
-
-.reviews{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
+///////////////////////////////////////////////////////////////////////////////////////
+//NICKNAME
 
 .nickname{
   &:link,
   &:visited{
-    color: $greyLight4;
+    background-color: transparent;
     background-position: 0 0;
+    color: inherit;
     text-decoration: none;
     display: inline-block;
     transition: all .5s;
@@ -83,5 +87,46 @@
       color: transparent;
     }
   }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+//DETAIL, DESCRIPTION, USER-REVIEWS
+
+.detail{
+  font-size: 1.4rem;
+  display: flex;
+  padding: 4.5rem;
+  background-color: $greyLight1;
+  border-bottom: $line;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+}
+
+.description{
+  flex: 0 0 60%;
+  background-color: $white;
+  box-shadow: 0 2rem 5rem rgba($black, .06);
+  padding: 3rem;
+  margin-right: 4.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 1.5rem;
+    margin-right: 3rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    margin: 0 0 3rem 0;
+  }
+}
+
+.user-reviews{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 

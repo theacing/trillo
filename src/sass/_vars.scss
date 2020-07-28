@@ -2,6 +2,10 @@ $primary: #eb2f64;
 $primaryLight: #FF3366;
 $primaryDark: #BA265D;
 
+$first: #b535ff;
+$firstLight: #e89aff;
+$firstDark: #5f258b;
+
 $greyLight1: #faf9f9;
 $greyLight2: #f4f2f2;
 $greyLight3: #f0eeee;
@@ -20,3 +24,9 @@ $white: #fff;
 $line: .1rem solid $greyLight2;
 
 $shadow: 0 2rem 5rem rgba($black, .09);
+
+$bp-largest: 75em;
+$bp-large: 68.75em;
+$bp-medium: 56.25em;
+$bp-small: 37.5em;
+$bp-smallest: 31.25em;

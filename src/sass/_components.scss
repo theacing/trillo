@@ -1,66 +1,75 @@
-.header{
+///////////////////////////////////////////////////////////////////////////////////////
+//LOGO
 
-  &__logo{
-    height: 3.25rem;
-    margin-left: 2rem;
-  }
-  &__icon-box {
-    background-color: blue;
-    flex: 0 0 10%;
-  }
+.logo{
+  margin-left: 2rem;
+  height: 3.25rem;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+//SEARCH
+
 .search{
-  flex: 0 0 40%;
   display: flex;
+  flex: 0 0 40%;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: $bp-smallest){
+    order: 10;
+    flex: 0 0 100%;
+    background-color: $greyLight2;
+  }
 
   &__input{
     font-family: inherit;
     font-size: inherit;
     color: inherit;
-    width: 90%;  //It will be bigger
     border: none;
     background-color: $greyLight2;
     border-radius: 10rem;
     padding: .7rem 2rem;
+    width: 90%;
     transition: all .2s;
     margin-right: -3.25rem;
 
     &:focus{
-      width: 100%;
       outline: none;
+      width: 100%;
       background-color: $greyLight3;
     }
+
     &::-webkit-input-placeholder{
       font-weight: 100;
       color: $greyLight4;
     }
   }
+
   &__btn{
     border: none;
     background-color: transparent;
     transition: all .2s;
 
-    &:active{
-      transform: translateY(.2rem);
-    }
     &:focus{
       outline: none;
     }
+    &:active{
+      transform: translateY(.2rem);
+    }
   }
+
   &__icon{
     height: 2rem;
     width: 2rem;
-
     fill: $greyDark3;
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+//USER NAV
+
 .user-nav{
   display: flex;
-  justify-content: center;
   align-items: center;
   align-self: stretch;
 
@@ -68,10 +77,10 @@
     padding: 0 2rem;
     cursor: pointer;
     height: 100%;
-    align-self: center;
     display: flex;
     align-items: center;
   }
+
   & > *:hover{
     background-color: $greyLight2;
   }
@@ -79,29 +88,25 @@
   &__icon-box{
     position: relative;
   }
-
   &__icon{
     width: 2.25rem;
     height: 2.25rem;
     fill: $greyDark2;
   }
-
   &__notification{
     position: absolute;
-    bottom: 1.5rem;
-    right: 1.1rem;
-    font-size: .8rem;
-    height: 1.75rem;
-    width: 1.75rem;
-    background-color: $primary;
-    border-radius: 50%;
-    color: $white;
-
+    bottom: 1.3rem;
+    right: 1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: .8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: $first;
+    color: $white;
   }
-
   &__user-photo{
     height: 3.75rem;
     border-radius: 50%;
@@ -109,31 +114,47 @@
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+//SIDE NAV
+
 .side-nav{
+  margin-top: 3.5rem;
   font-size: 1.4rem;
   list-style: none;
-  margin-top: 2.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
 
   &__item{
     position: relative;
+    cursor: pointer;
 
     &:not(:last-child){
       margin-bottom: .5rem;
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
     }
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
+    }
+  }
 
-    &::before{
-      content: "";
-      background-color: $primary;
-      width: .3rem;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: scaleY(0);
-      transition: transform .2s,
-                  width .4s cubic-bezier(1,0,0,1) .2s,
-                  background-color .1s;
-    }
+  &__item::before{
+    content: "";
+    width: .3rem;
+    height: 100%;
+    background-color: $first;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleY(0);
+
+    transition: transform .2s,
+                width .4s cubic-bezier(1,0,0,1) .2s,
+                background-color .1s;
   }
 
   &__item:hover::before,
@@ -143,143 +164,188 @@
   }
 
   &__item:active::before{
-    background-color: $primaryLight;
+    background-color: $firstLight;
   }
 
-  &__link{
-    &:link,
-    &:visited{
-      position: relative;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $greyLight1;
-      display: flex;
-      align-items: center;
-      padding: 1.5rem 3rem;
-      z-index: 10;
-    }
-    &:hover{
+  &__link:link,
+  &__link:visited{
+    position: relative;
+    text-decoration: none;
+    color: $greyLight1;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
 
-    }
-    &:active{
+    display: flex;
+    align-items: center;
+    z-index: 10;
 
+    span{
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem .5rem;
     }
   }
 
   &__icon{
-    width: 1.75rem;
     height: 1.75rem;
-    margin-right: 2rem;
+    width: 1.75rem;
     fill: currentColor;
+    margin-right: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: .7rem;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
   }
 }
 
-.legal{
+///////////////////////////////////////////////////////////////////////////////////////
+//COPYRIGHT
+
+.copy{
   font-size: 1.2rem;
-  text-align: center;
   color: $greyLight4;
+  text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+//GALLERY
 
 .gallery{
   display: flex;
 
   &__item{
-    width: 33.33%;
+    flex: 0 0 33.33%;
   }
   &__photo{
     width: 100%;
     height: 20rem;
     display: block;
-  }
-}
 
-.text-wrapper{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: stretch;
-}
+    @media only screen and (max-width: $bp-medium) {
+      height: 25rem;
+    }
+    @media only screen and (max-width: $bp-smallest) {
+      object-fit: cover;
+    }
 
-.hotel-descr{
-  border-bottom: $line;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    &--1{
 
-  &__img{
-    flex: 0 0 33%;
-    height: 20rem;
-  }
+    }
+    &--2{
 
-  &__location{
-    position: relative;
-    margin-right: 3rem;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
+    }
+    &--3{
 
-    &-icon{
-      width: 1.75rem;
-      height: 1.75rem;
-      fill: $primary;
-      margin-right: 1rem;
     }
   }
+}
 
-  &__name{
+///////////////////////////////////////////////////////////////////////////////////////
+//OVERVIEW
+
+.overview{
+  display: flex;
+  align-items: center;
+  border-bottom: $line;
+
+  &__heading{
     font-size: 2.25rem;
     font-weight: 300;
+    line-height: .1rem;
     text-transform: uppercase;
-    letter-spacing: .1rem;
-    color: $greyDark2;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
   &__stars{
     display: flex;
     margin-right: auto;
   }
   &__icon{
-    width: 1.75rem;
     height: 1.75rem;
-    fill: $primary;
+    width: 1.75rem;
+    fill: $first;
+
   }
-  &__ratings{
+  &__location{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+  &__rating{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: $primary;
     color: $greyLight1;
-    padding: 0 2rem;
+    background-color: $first;
     align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem 2.25rem;
+    margin-left: 3rem;
 
-    &-value{
+    @media only screen and (max-width: $bp-small) {
+      padding: .5rem 1.5rem;
+    }
+
+    &-average{
       font-size: 2.25rem;
       font-weight: 300;
+      margin-bottom: -.3rem;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
     }
-    &-amount{
-      text-transform: uppercase;
+    &-count{
       font-size: .8rem;
+      text-transform: uppercase;
     }
   }
 }
 
+.location-icon{
+  margin-right: .5rem;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+//BUTTON INLINE
+
 .btn-inline{
-  border: none;
-  color: $primary;
-  font-size: inherit;
-  border-bottom: .1rem solid currentColor;
-  cursor: pointer;
-  display: inline-block;
-  padding-bottom: .2rem;
-  background-color: transparent;
+  &,
+  &:link,
+  &:visited{
+    font-size: inherit;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding-bottom: .2rem;
+    color: $first;
+    border-bottom: .1rem solid currentColor;
+    display: inline-block;
 
-  transition: all .2s;
+    transition: all .2s;
+  }
 
-  span{
-    margin-left: .3rem;
+  & span{
+    margin-left: .4rem;
     transition: margin-left .2s;
   }
 
@@ -290,65 +356,80 @@
       margin-left: .8rem;
     }
   }
+
+  &:active{
+
+  }
   &:focus{
     outline: none;
-    animation: scale 1s infinite;
-    backface-visibility: hidden;
+    animation: pulsate 1s infinite;
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+//PARAGRAPH
 
-.paragraph:not(:last-of-type){
-  margin-bottom: 2rem;
+.paragraph{
+
+  &:not(:last-of-type){
+    margin-bottom: 2rem;
+  }
 }
 
-.list{
-  list-style: none;
-  padding: 3rem 0;
-  margin: 3rem 0;
-  border-top: $line;
-  border-bottom: $line;
-  display: flex;
-  flex-wrap: wrap;
+///////////////////////////////////////////////////////////////////////////////////////
+//LIST
 
+.description{
+  &__list{
+    margin: 3rem 0;
+    padding: 3rem 0;
+    list-style: none;
+    border-top: $line;
+    border-bottom: $line;
+    display: flex;
+    flex-wrap: wrap;
+  }
   &__item{
     flex: 0 0 50%;
     margin-bottom: .7rem;
   }
-  
   &__item::before{
     content: "";
-    margin-right: .7rem;
     display: inline-block;
     height: 1rem;
     width: 1rem;
+    margin-right: .7rem;
 
-    //Old browsers
-    //background-image: url(../img/chevron-thin-right.svg);
-    //background-size: cover;
+    //OLD BROWSERS
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
-    //New browsers
-    background-color: $primary;
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    //NEW BROWSERS
+    @supports (-webkit-mask-image: url(../img/chevron-thin-right.svg)) or (mask-image: url(../img/chevron-thin-right.svg)) {
+      background-color: $primary;
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+//RECOMMEND
+
 .recommend{
-  font-size: 1.3rem;
-  color: $greyDark3;
   display: flex;
   align-items: center;
+  font-size: 1.3rem;
+  color: $greyDark3;
 
   &__count{
     margin-right: auto;
   }
-  &__friends{
-    display: flex;
-  }
-  &__photo{
+
+  &__friends-photo{
     box-sizing: content-box;
     height: 4rem;
     width: 4rem;
@@ -356,26 +437,44 @@
     border: .3rem solid $white;
 
     &:not(:last-child){
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+//REVIEW
+
 .review{
   position: relative;
+  padding: 3rem;
   background-color: $white;
   box-shadow: $shadow;
-  padding: 3rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
   overflow: hidden;
 
+  @media only screen and (max-width: $bp-medium) {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  &::before{
+    content: "\201C";
+    font-family: sans-serif;
+    position: absolute;
+    top: -2.5rem;
+    left: -1rem;
+    font-size: 20rem;
+    line-height: 1;
+    color: $greyLight2;
+    z-index: 1;
+  }
   &__text{
     position: relative;
-    z-index: 2;
     margin-bottom: 2rem;
+    z-index: 10;
   }
   &__user{
-    margin-top: 1.5rem;
     display: flex;
     align-items: center;
   }
@@ -383,15 +482,16 @@
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 50%;
+    margin-right: 1.5rem;
+    object-fit: cover;
   }
   &__user-box{
-    margin-left: 1.5rem;
     margin-right: auto;
   }
   &__user-name{
-    text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
+    text-transform: uppercase;
     margin-bottom: .4rem;
   }
   &__user-date{
@@ -399,88 +499,77 @@
     color: $greyDark3;
   }
   &__rating{
-    font-size: 2.2rem;
-    font-weight: 300;
+    font-size: 10rem;
     color: $primary;
-  }
-  &::before{
-    content: "\201C";
-    color: $greyLight2;
-    font-size: 20rem;
-    position: absolute;
-    top: -2.75rem;
-    left: -1rem;
-    line-height: 1;
-    z-index: 1;
-    font-family: sans-serif;
+    font-weight: 300;
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+//CTA
 
 .cta{
   padding: 3.5rem 0;
   text-align: center;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem 0;
+  }
+
   &__heading{
+    text-transform: uppercase;
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 2.5rem;
-    text-transform: uppercase;
   }
 }
 
 .btn{
+  &,
   &:link,
   &:visited{
+    position: relative;
     font-size: 1.5rem;
     font-weight: 300;
-    border-radius: 10rem;
-    background-image: linear-gradient(to right, $primaryLight, $primaryDark);
-    display: inline-block;
-    text-decoration: none;
-    color: $white;
     border: none;
-    position: relative;
-    text-transform: uppercase;
+    background-image: linear-gradient(to right, $primaryLight, $primaryDark);
+    border-radius: 10rem;
+    color: $greyLight1;
+    box-shadow: 0 1rem 3rem rgba($black, .3);
     overflow: hidden;
+    text-transform: uppercase;
     cursor: pointer;
+
+    transition: all .2s;
   }
   &:hover{
     background-image: linear-gradient(to left, $primaryLight, $primaryDark);
   }
-  &:active{
-
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
   }
 
   & > *{
+    display: inline-block;
+    transition: all .2s;
     height: 100%;
     width: 100%;
-
-    transition: all .2s;
-    display: inline-block;
   }
 
   &__visible{
     padding: 2rem 7.5rem;
   }
-
-  &__hidden{
+  &__invisible{
     position: absolute;
     padding: 2rem 0;
-    color: $white;
     top: -100%;
     left: 0;
   }
-
+  &:hover &__invisible{
+    top: 0;
+  }
   &:hover &__visible{
     transform: translateY(100%);
   }
-  &:hover &__hidden{
-    top: 0;
-  }
-  &:focus{
-    outline: none;
-    animation: scale 1s infinite;
-  }
 }
-

@@ -9,7 +9,7 @@
   }
 }
 
-@keyframes scale {
+@keyframes pulsate {
   0%{
     transform: scale(1);
     box-shadow: none;
@@ -25,3 +25,5 @@
     box-shadow: none;
   }
 }
+
+

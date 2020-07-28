@@ -11,20 +11,26 @@
 
 html{
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%;       //10px
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;       //8px
+  }
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 37.5%;     //6px
+  }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 31.25%;    //5px
+  }
 }
 
 body{
+  background-image: linear-gradient(to right bottom, $firstLight, $firstDark);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   color: $greyDark2;
-  background-image: linear-gradient(to right bottom, $primaryLight, $primaryDark);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-::selection{
-  background-color: $primary;
-  color: $white;
 }

@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="63d1cba7-6733-4d03-b3c8-0592c3eb03d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/_animations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_animations.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_base.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sass/_components.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_components.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/_layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_vars.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +58,7 @@
       <workItem from="1595668574984" duration="3052000" />
       <workItem from="1595744993655" duration="2041000" />
       <workItem from="1595808871681" duration="26385000" />
-      <workItem from="1595903406860" duration="16265000" />
+      <workItem from="1595903406860" duration="17069000" />
     </task>
     <servers />
   </component>

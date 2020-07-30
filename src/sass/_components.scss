@@ -362,7 +362,7 @@
   }
   &:focus{
     outline: none;
-    animation: pulsate 1s infinite;
+    animation: pulse 1s infinite;
   }
 }
 
@@ -550,7 +550,7 @@
   }
   &:focus {
     outline: none;
-    animation: pulsate 1s infinite;
+    animation: pulse 1s infinite;
   }
 
   & > *{
